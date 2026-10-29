@@ -1,0 +1,32 @@
+/* OPTIONEEL: verzendknop van het Gravity Forms-formulier in dezelfde gradient.
+   Alleen kleur/stijl van de knop, de werking van het formulier blijft onaangeraakt. Laat dit bestand weg als je het formulier niet wilt raken. */
+
+.gform_wrapper .gform_footer .gform_button,
+.gform_wrapper .gform_page_footer .gform_button,
+.gform_wrapper button.gform_button.button{
+  background:
+    linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
+    linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  border:1px solid transparent;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(79,70,200,.38);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+}
+
+.gform_wrapper .gform_footer .gform_button:hover,
+.gform_wrapper .gform_page_footer .gform_button:hover,
+.gform_wrapper button.gform_button.button:hover,
+.gform_wrapper .gform_button.button:active{
+  background:
+    linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
+    linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(79,70,200,.5);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .gform_wrapper button.gform_button.button,
+  .gform_wrapper button.gform_button.button:hover,
+  .gform_wrapper .gform_button.button:active{transition:none; transform:none}
+}
