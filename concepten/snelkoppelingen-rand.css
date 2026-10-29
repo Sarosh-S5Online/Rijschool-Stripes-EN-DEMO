@@ -1,6 +1,6 @@
 /* Rijschool Stripes, concept: de 6 snelkoppeling-kaarten ("Geen tijd te verliezen?")
    1. gradient randje in alleen paars (donker magenta naar indigo), goed zichtbaar op wit
-   2. het vlakje achter het pijltje in een donkere paarse gradient (diep pruim naar indigo) met witte pijl
+   2. het vlakje achter het pijltje in een paarse gradient (paars naar indigo, iets lichter) met witte pijl
    Kaart, tekst en hover blijven zoals ze waren.
    Selector: .quick-links > a.item  (sectie #brxe-pdbmel, grid #brxe-dxfsrq) */
 
@@ -12,9 +12,9 @@
 }
 
 .quick-links > a.item svg{
-  background:linear-gradient(135deg,#7a0a8c,#3b34a8);
+  background:linear-gradient(135deg,#9a12a8,#5148c9);
   border-radius:6px;
-  box-shadow:0 4px 10px rgba(59,52,168,.35), inset 0 0 0 1px rgba(255,255,255,.14);
+  box-shadow:0 4px 10px rgba(81,72,201,.32), inset 0 0 0 1px rgba(255,255,255,.14);
 }
 .quick-links > a.item svg rect{fill:transparent}
 .quick-links > a.item svg path{fill:#fff}
