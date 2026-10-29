@@ -623,7 +623,7 @@ var cmplz_tcf = {"cmp_url":"/wp-content/uploads/complianz/","retention_string":"
    Alleen mobiel (max 767px). Desktop blijft ongewijzigd.
    Scope: .brxe-yzllxr (sectie) en de drie links .brxe-iqmaua / .brxe-vnqqln / .brxe-diyuhi.
    Elke link bevat twee spans: .rss-t-d (huidige tekst, desktop) en .rss-t-m (nieuwe tekst, mobiel).
-   Animaties: hover (muis), tik/klik (:active) en toetsenbord (:focus-visible). Alleen CSS. */
+   Animaties: hover (muis) en tik/klik (:active). Alleen CSS. */
 
 .rss-t-m{display:none}
 
@@ -674,69 +674,53 @@ var cmplz_tcf = {"cmp_url":"/wp-content/uploads/complianz/","retention_string":"
   }
   @keyframes rssShine{0%,55%{left:-60%}100%{left:135%}}
 
-  /* B: gradient-outline (rijangst, reviews), magenta naar cyaan op het donkere grijs #2d2d35 */
+  /* B: altijd gevuld (rijangst, reviews): magenta naar indigo, rand magenta naar cyaan.
+     Wit op #a80a95 en #4f46c8 blijft boven 5:1 */
   .brxe-yzllxr a.brxe-iqmaua,
   .brxe-yzllxr a.brxe-diyuhi{
     background:
-      linear-gradient(#2d2d35,#2d2d35) padding-box,
+      linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
       linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+    box-shadow:0 8px 22px rgba(79,70,200,.38);
   }
   .brxe-yzllxr a.brxe-iqmaua::after,
   .brxe-yzllxr a.brxe-diyuhi::after{
-    background-color:rgba(255,255,255,.14);
+    background-color:rgba(255,255,255,.22);
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
   }
-  /* vulling die van links naar rechts inloopt (wit op #a80a95 / #4f46c8 blijft boven 5:1) */
-  .brxe-yzllxr a.brxe-iqmaua::before,
-  .brxe-yzllxr a.brxe-diyuhi::before{
-    content:""; position:absolute; inset:0; z-index:-1;
-    background:linear-gradient(100deg,#a80a95,#4f46c8);
-    transform:scaleX(0); transform-origin:left center;
-    transition:transform .4s cubic-bezier(.2,.8,.2,1);
-  }
 
-  /* TIK / KLIK: knop veert in, pijl schiet door, ring flitst op */
-  .brxe-yzllxr a.brxe-iqmaua:active,
-  .brxe-yzllxr a.brxe-vnqqln:active,
-  .brxe-yzllxr a.brxe-diyuhi:active{
-    transform:scale(.96);
-    transition-duration:.08s;
+  /* TIK / KLIK */
+  /* proefles: knop veert in, pijl schiet door, ring flitst op */
+  .brxe-yzllxr a.brxe-vnqqln:active{
+    transform:scale(.96); transition-duration:.08s;
+    box-shadow:0 0 0 6px rgba(194,10,172,.32), 0 4px 12px rgba(194,10,172,.4);
   }
-  .brxe-yzllxr a.brxe-iqmaua:active::after,
-  .brxe-yzllxr a.brxe-vnqqln:active::after,
-  .brxe-yzllxr a.brxe-diyuhi:active::after{transform:translateX(8px) scale(1.12)}
-  .brxe-yzllxr a.brxe-vnqqln:active{box-shadow:0 0 0 6px rgba(194,10,172,.32), 0 4px 12px rgba(194,10,172,.4)}
+  .brxe-yzllxr a.brxe-vnqqln:active::after{transform:translateX(8px) scale(1.12)}
+  /* rijangst en reviews: alleen een tikje omhoog */
   .brxe-yzllxr a.brxe-iqmaua:active,
-  .brxe-yzllxr a.brxe-diyuhi:active{box-shadow:0 0 0 6px rgba(0,208,255,.22)}
-  .brxe-yzllxr a.brxe-iqmaua:active::before,
-  .brxe-yzllxr a.brxe-diyuhi:active::before,
-  .brxe-yzllxr a.brxe-iqmaua:focus-visible::before,
-  .brxe-yzllxr a.brxe-diyuhi:focus-visible::before{transform:scaleX(1)}
+  .brxe-yzllxr a.brxe-diyuhi:active{
+    transform:translateY(-3px);
+    box-shadow:0 14px 28px rgba(79,70,200,.5);
+  }
 }
 
-/* HOVER (muis): knop komt omhoog, pijl glijdt vooruit, vulling loopt in */
+/* HOVER (muis): knop komt omhoog. Proefles: ook pijl vooruit, grotere glow en snellere glans */
 @media (max-width:767px) and (hover:hover){
   .brxe-yzllxr a.brxe-iqmaua:hover,
   .brxe-yzllxr a.brxe-vnqqln:hover,
   .brxe-yzllxr a.brxe-diyuhi:hover{transform:translateY(-3px)}
-  .brxe-yzllxr a.brxe-iqmaua:hover::after,
-  .brxe-yzllxr a.brxe-vnqqln:hover::after,
-  .brxe-yzllxr a.brxe-diyuhi:hover::after{transform:translateX(5px) scale(1.08)}
-  .brxe-yzllxr a.brxe-vnqqln:hover{box-shadow:0 14px 30px rgba(194,10,172,.5)}
-  .brxe-yzllxr a.brxe-vnqqln:hover::before{animation-duration:1.1s}
   .brxe-yzllxr a.brxe-iqmaua:hover,
-  .brxe-yzllxr a.brxe-diyuhi:hover{box-shadow:0 12px 26px rgba(79,70,200,.45)}
-  .brxe-yzllxr a.brxe-iqmaua:hover::before,
-  .brxe-yzllxr a.brxe-diyuhi:hover::before{transform:scaleX(1)}
-  .brxe-yzllxr a.brxe-iqmaua:hover::after,
-  .brxe-yzllxr a.brxe-diyuhi:hover::after{background-color:rgba(255,255,255,.28)}
+  .brxe-yzllxr a.brxe-diyuhi:hover{box-shadow:0 14px 28px rgba(79,70,200,.5)}
+  .brxe-yzllxr a.brxe-vnqqln:hover{box-shadow:0 14px 30px rgba(194,10,172,.5)}
+  .brxe-yzllxr a.brxe-vnqqln:hover::after{transform:translateX(5px) scale(1.08)}
+  .brxe-yzllxr a.brxe-vnqqln:hover::before{animation-duration:1.1s}
   /* indrukken heeft voorrang op hover */
+  .brxe-yzllxr a.brxe-vnqqln:active{transform:scale(.96)}
   .brxe-yzllxr a.brxe-iqmaua:active,
-  .brxe-yzllxr a.brxe-vnqqln:active,
-  .brxe-yzllxr a.brxe-diyuhi:active{transform:scale(.96)}
+  .brxe-yzllxr a.brxe-diyuhi:active{transform:translateY(-3px)}
 }
 
-/* verminderde beweging: geen glans, geen lift, geen schuifjes (kleurverandering blijft) */
+/* verminderde beweging: geen glans, geen lift, geen schuifjes */
 @media (max-width:767px) and (prefers-reduced-motion:reduce){
   .brxe-yzllxr a.brxe-vnqqln::before{animation:none; display:none}
   .brxe-yzllxr a.brxe-iqmaua,
@@ -745,12 +729,6 @@ var cmplz_tcf = {"cmp_url":"/wp-content/uploads/complianz/","retention_string":"
   .brxe-yzllxr a.brxe-iqmaua::after,
   .brxe-yzllxr a.brxe-vnqqln::after,
   .brxe-yzllxr a.brxe-diyuhi::after{transition:none; transform:none}
-  .brxe-yzllxr a.brxe-iqmaua::before,
-  .brxe-yzllxr a.brxe-diyuhi::before{transition:none}
-  .brxe-yzllxr a.brxe-iqmaua:hover::before,
-  .brxe-yzllxr a.brxe-diyuhi:hover::before,
-  .brxe-yzllxr a.brxe-iqmaua:active::before,
-  .brxe-yzllxr a.brxe-diyuhi:active::before{transform:scaleX(1)}
 }
 </style>
 </head>
