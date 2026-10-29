@@ -1,0 +1,11 @@
+/* Rijschool Stripes, concept: alleen het vlakje achter het pijltje in de 6 snelkoppeling-kaarten ("Geen tijd te verliezen?")
+   krijgt een paarse gradient met een witte pijl. De kaarten zelf (ook de rand) en hun hover blijven zoals ze waren.
+   Selector: .quick-links > a.item svg  (sectie #brxe-pdbmel, grid #brxe-dxfsrq) */
+
+.quick-links > a.item svg{
+  background:linear-gradient(135deg,#9a12a8,#5148c9);
+  border-radius:6px;
+  box-shadow:0 4px 10px rgba(81,72,201,.3);
+}
+.quick-links > a.item svg rect{fill:transparent}
+.quick-links > a.item svg path{fill:#fff}
