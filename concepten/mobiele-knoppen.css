@@ -1,0 +1,91 @@
+/* Rijschool Stripes, concept: knoppen in de grijze sectie "Gespecialiseerd in alle vormen"
+   Alleen mobiel (max 767px). Desktop blijft ongewijzigd.
+   Scope: .brxe-yzllxr (sectie) en de drie links .brxe-iqmaua / .brxe-vnqqln / .brxe-diyuhi.
+   Elke link bevat twee spans: .rss-t-d (huidige tekst, desktop) en .rss-t-m (nieuwe tekst, mobiel). */
+
+.rss-t-m{display:none}
+
+@media (max-width:767px){
+  .brxe-yzllxr .rss-t-d{display:none}
+  .brxe-yzllxr .rss-t-m{display:inline}
+
+  /* basis voor alle drie */
+  .brxe-yzllxr a.brxe-iqmaua,
+  .brxe-yzllxr a.brxe-vnqqln,
+  .brxe-yzllxr a.brxe-diyuhi{
+    position:relative; overflow:hidden;
+    display:inline-flex; align-items:center; justify-content:space-between; gap:14px;
+    align-self:flex-start; max-width:100%;
+    min-height:48px; margin-top:20px; padding:6px 8px 6px 22px;
+    border-radius:999px; border:2px solid transparent;
+    font-size:16px; font-weight:600; line-height:1.15; text-decoration:none; color:#fff;
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  /* pijl-cirkel */
+  .brxe-yzllxr a.brxe-iqmaua::after,
+  .brxe-yzllxr a.brxe-vnqqln::after,
+  .brxe-yzllxr a.brxe-diyuhi::after{
+    content:""; flex:0 0 34px; width:34px; height:34px; border-radius:50%;
+    background-repeat:no-repeat; background-position:center; background-size:18px;
+    transition:transform .15s ease;
+  }
+  .brxe-yzllxr a.brxe-iqmaua:active::after,
+  .brxe-yzllxr a.brxe-vnqqln:active::after,
+  .brxe-yzllxr a.brxe-diyuhi:active::after{transform:translateX(3px)}
+  .brxe-yzllxr a.brxe-iqmaua:active,
+  .brxe-yzllxr a.brxe-vnqqln:active,
+  .brxe-yzllxr a.brxe-diyuhi:active{transform:scale(.98)}
+  .brxe-yzllxr a.brxe-iqmaua:focus-visible,
+  .brxe-yzllxr a.brxe-vnqqln:focus-visible,
+  .brxe-yzllxr a.brxe-diyuhi:focus-visible{outline:3px solid #00d0ff; outline-offset:3px}
+
+  /* A: gevulde pil (proefles), magenta, wit op #c20aac = 5,3:1 */
+  .brxe-yzllxr a.brxe-vnqqln{
+    background:linear-gradient(100deg,#a80a95,#c20aac);
+    box-shadow:0 8px 22px rgba(194,10,172,.38);
+  }
+  .brxe-yzllxr a.brxe-vnqqln::after{
+    background-color:#fff;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c20aac' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  }
+  /* lichtglans, rustig, elke paar seconden */
+  .brxe-yzllxr a.brxe-vnqqln::before{
+    content:""; position:absolute; top:0; bottom:0; left:-60%; width:40%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.34),transparent);
+    transform:skewX(-20deg); pointer-events:none;
+    animation:rssShine 3.8s ease-in-out infinite;
+  }
+  @keyframes rssShine{0%,55%{left:-60%}100%{left:135%}}
+
+  /* B: gradient-outline (rijangst, reviews), magenta naar cyaan op het donkere grijs #2d2d35 */
+  .brxe-yzllxr a.brxe-iqmaua,
+  .brxe-yzllxr a.brxe-diyuhi{
+    background:
+      linear-gradient(#2d2d35,#2d2d35) padding-box,
+      linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  }
+  .brxe-yzllxr a.brxe-iqmaua::after,
+  .brxe-yzllxr a.brxe-diyuhi::after{
+    background-color:rgba(255,255,255,.14);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  }
+  /* bij tik loopt de vulling vol */
+  .brxe-yzllxr a.brxe-iqmaua:active,
+  .brxe-yzllxr a.brxe-diyuhi:active{
+    background:
+      linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
+      linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  }
+}
+
+/* verminderde beweging: geen glans, geen schuifjes */
+@media (max-width:767px) and (prefers-reduced-motion:reduce){
+  .brxe-yzllxr a.brxe-vnqqln::before{animation:none; display:none}
+  .brxe-yzllxr a.brxe-iqmaua,
+  .brxe-yzllxr a.brxe-vnqqln,
+  .brxe-yzllxr a.brxe-diyuhi,
+  .brxe-yzllxr a.brxe-iqmaua::after,
+  .brxe-yzllxr a.brxe-vnqqln::after,
+  .brxe-yzllxr a.brxe-diyuhi::after{transition:none}
+}
