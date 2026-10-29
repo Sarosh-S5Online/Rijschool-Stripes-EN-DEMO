@@ -1,0 +1,10 @@
+/* Rijschool Stripes, concept: de 6 snelkoppeling-kaarten ("Geen tijd te verliezen?") krijgen een gradient randje
+   (magenta naar cyaan). Kaart, tekst, pijltje en hover blijven zoals ze waren.
+   Selector: .quick-links > a.item  (sectie #brxe-pdbmel, grid #brxe-dxfsrq) */
+
+.quick-links > a.item{
+  border:2px solid transparent;
+  background:
+    linear-gradient(90deg,#d2e5ff 0%,#d2e5ff 100%) padding-box,
+    linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+}
