@@ -37,3 +37,37 @@
   .btn.btn--primary:active,
   .btn.btn--secondary:active{transition:none; transform:none}
 }
+
+/* Snelkoppelingen "Geen tijd te verliezen?" (6 kaarten): zelfde gradient, witte tekst, witte pijl in doorzichtig vlak.
+   Selector: .quick-links > a.item (sectie #brxe-pdbmel, grid #brxe-dxfsrq) */
+.quick-links > a.item{
+  background:
+    linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
+    linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  border:1px solid transparent;
+  box-shadow:0 8px 22px rgba(79,70,200,.38);
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+}
+/* de bestaande navy-blauwe hover-overlay (::before) uitzetten */
+.quick-links > a.item::before{display:none}
+.quick-links > a.item .brxe-text-basic,
+.quick-links > a.item:hover .brxe-text-basic{color:#fff}
+.quick-links > a.item svg rect{fill:rgba(255,255,255,.22)}
+.quick-links > a.item svg path{fill:#fff}
+
+.quick-links > a.item:hover,
+.quick-links > a.item:active{
+  background:
+    linear-gradient(100deg,#a80a95,#4f46c8) padding-box,
+    linear-gradient(100deg,#c20aac,#00d0ff) border-box;
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(79,70,200,.5);
+}
+.quick-links > a.item:focus-visible{outline:3px solid #00d0ff; outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  .quick-links > a.item,
+  .quick-links > a.item:hover,
+  .quick-links > a.item:active{transition:none; transform:none}
+}
